@@ -1,0 +1,86 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+        <div width="50%" cellpadding="0" cellspacing="0">
+           <div class="col-md-16">
+                <div class="page-header margin-none">
+                    <h2 class="padding-none">BD hoonter_web Table waiting_startups</h2>
+                        
+                    {% for flashMessage in app.session.flashbag.get('mensaje') %}
+                        <span class="alert-success">
+                            {{flashMessage}}
+                                <hr />
+                        </span>
+                    {% endfor %}
+                </div>
+                
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+               
+                <thead class="bg-primary">
+                    <tr>
+                        <th class="text-center" nowrap width="10%" height="10%">Star Up P</th>
+                        <th class="text-center" nowrap width="10%" height="10%">Star Up Type</th>
+                        <th class="text-center" nowrap width="10%" height="10%">Name</th>
+                        <th class="text-center" nowrap width="10%" height="10%">Email</th>
+                        <th class="text-center" nowrap width="10%" height="10%">Registration Date</th>
+                        <th class="text-center" nowrap width="10%" height="10%">Status</th>
+                        <th class="text-center" nowrap width="10%" height="10%">Invitation Type</th>
+                        <th class="text-center" nowrap width="10%" height="10%">Confirmation Date</th>
+                        <th class="text-center" nowrap width="10%" height="10%">Created</th>
+                        <th class="text-center" nowrap width="10%" height="10%">Updated</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    
+                    {% for waitingStartup in waitingStartups %}
+                    
+                        <tr class="text-center">
+                            <td width="10%" height="10%">{{waitingStartup.startupType}}</td>
+                            <td width="10%" height="10%">
+                                {% if waitingStartup.startupP == null %}
+                                <strong>Empty</strong>
+                                {% else %}
+                                {{waitingStartup.startupP}}
+                                {% endif %}
+                            </td>
+                            <td width="10%" height="10%">{{waitingStartup.name}}</td>
+                            <td width="10%" height="10%">{{waitingStartup.email}}</td>
+                            <td width="10%" height="10%">{{waitingStartup.registrationDate|date('d-m-y H:i')}}</td>
+                            <td width="10%" height="10%">
+                                {% if waitingStartup.statusId == 1 %}
+                                System Administrator
+                                {% elseif waitingStartup.statusId == 2 %}
+                                General Administrator
+                                {% elseif waitingStartup.statusId == 3 %}
+                                Marketing User
+                                {% endif %}
+                            </td>            
+                            <td width="10%" height="10%">
+                                {% if waitingStartup.invitationType == 1 %}
+                                One
+                                {% elseif waitingStartup.invitationType == 2 %}
+                                Two
+                                {% elseif waitingStartup.invitationType == 3 %}
+                                Three
+                                {% endif %}
+                            </td>
+                            <td width="10%" height="10%">
+                                {% if waitingStartup.confirmationDate  == null %}
+                                Undated Confirmation
+                                {% else %}
+                                {{waitingStartup.confirmationDate|date('d-m-y H:i')}}
+                                {% endif %}
+                            </td>
+                            <td width="10%" height="10%">{{waitingStartup.createdAt|date('d-m-y H:i')}}</td>
+                            <td width="10%" height="10%">{{waitingStartup.updatedAt|date('d-m-y H:i')}}</td>
+                       </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

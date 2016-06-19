@@ -1,0 +1,23 @@
+parameters:
+#    alotofus_analytics.example.class: Alotofus\AnalyticsBundle\Example
+
+services:
+    alotofus_analytics.manager.daily:
+        class: Alotofus\AnalyticsBundle\EntityManager\DailyAnalyticsManager
+        arguments: [@doctrine.orm.entity_manager]
+    alotofus_analytics.manager.activity:
+        class: Alotofus\AnalyticsBundle\EntityManager\ActivityAnalyticsManager
+        arguments: [@doctrine.orm.entity_manager,@security.context]
+    alotofus_analytics.twig.analytics:
+        class: Alotofus\AnalyticsBundle\Twig\AnalyticsExtension
+        tags:
+            - { name: twig.extension }
+    #Listeners
+#    alotofus_analytics.listener.session:
+#        class: Alotofus\AnalyticsBundle\EventListener\SessionEventListener
+#        arguments: [@alotofus_analytics.manager.activity]
+#        tags:
+#            - { name: "kernel.event_listener", event: "kernel.request", method: "onSessionPreInit"}
+#            - { name: "kernel.event_listener", event: "kernel.response", method: "onSessionPostInit"}
+#            - { name: "kernel.event_listener", event: "alotofus.user.subscribe", method: "onSessionSubscribe"}
+#            - { name: "kernel.event_listener", event: "alotofus.company.subscribe", method: "onSessionSubscribe"}

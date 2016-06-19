@@ -1,0 +1,27 @@
+alotofus:
+    admin:
+        invitations:
+            header: Invitaciones
+            send: Enviar invitaciones
+            send.success: Invitación enviada correctamente
+            send.error: Error al enviar la invitación
+        company:
+            header: Empresas
+            accept: Aceptar empresa(s)
+            accept.success: Empresa aceptada correctamente
+            accept.error: Error al aceptar la empresa
+            deactivate: Desactivar empresa
+            deactivate.success: Empresa desactivada correctamente
+            deactivate.error: Error al desactivar empresa
+            delete: Eliminar empresa
+            delete.success: Empresa eliminada correctamente
+            delete.error: Error al eliminar la empresa
+        listings:
+            header: Listados
+            studies: Estudios
+            knowledges: Conocimientos
+            languages: Idiomas
+            companysizes: Tamaños de compañía
+            companytypes: Tipos de compañía
+            companysectors: Sectores de compañía
+            name: Nombre

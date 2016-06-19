@@ -1,0 +1,59 @@
+{% extends 'AlotofusWebBundle:Default:base/platform.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts '@AlotofusAdminBundle/Resources/public/coffee/model/listingResource.coffee'
+    '@AlotofusAdminBundle/Resources/public/coffee/collection/listingResource.coffee'
+    '@AlotofusAdminBundle/Resources/public/coffee/views/listings/index.coffee'
+    '@AlotofusAdminBundle/Resources/public/coffee/views/listings/listingTableRowView.coffee'
+    '@AlotofusAdminBundle/Resources/public/coffee/views/listings/editResourceModalView.coffee'
+    output='js/*.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block dashboardContent %}
+    <div class="dashboard-element-container">
+        <div class="dashboard-element listing-table" data-resource="{{ resourceName }}">
+            {% set headerText = 'alotofus.admin.listings.' ~ resourceName %}
+            <h2>{{ headerText | trans }}</h2>
+            <div class="table-options">
+                <div class="table-selection">
+                    <button class="create-resource"><i data-icon="plus"></i>{% trans %}alotofus.generic.create{% endtrans %}</button>
+                </div>
+                <div class="table-filter">
+                    <span>{% trans %}alotofus.generic.filters{% endtrans %}:</span>
+                    <input data-filter="name" placeholder="{% trans %}alotofus.admin.listings.name{% endtrans %}"/>
+                </div>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>{% trans %}alotofus.admin.listings.name{% endtrans %}</th>
+                    <th>{% trans %}alotofus.generic.actions{% endtrans %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="table-footer">
+                <ul class="table-pager">
+                    <li class="previous-page "><i data-icon="left"></i></li>
+                    <li class="current-page">
+                        {% image output="images/loading.gif"
+                        '@AlotofusWebBundle/Resources/public/images/loading.gif'
+                        %}
+                        <img src="{{ asset_url }}" alt="" height=20 />
+                        {% endimage %}
+                        <span></span>
+                    </li>
+                    <li class="next-page"><i data-icon="right"></i></li>
+                </ul>
+                <ul class="table-legend">
+                    <li>{% trans %}alotofus.generic.edit{% endtrans %}<i data-icon="pencil"></i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

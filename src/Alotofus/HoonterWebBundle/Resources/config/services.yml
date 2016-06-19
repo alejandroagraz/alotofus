@@ -1,0 +1,4 @@
+services:
+#    alotofus_hoonter_web.example:
+#        class: Alotofus\HoonterWebBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

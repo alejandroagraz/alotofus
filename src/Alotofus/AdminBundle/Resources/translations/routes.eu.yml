@@ -1,0 +1,28 @@
+# Desc: /dashboard/admin/analytics
+alotofus_admin_analytics: '/dashboard/admin/analitikak'
+
+# Desc: /dashboard/admin/company
+alotofus_admin_company: '/dashboard/admin/konpainia'
+
+# Desc: /dashboard/admin/invitations
+alotofus_admin_invitations: '/dashboard/admin/invitaciones'
+
+
+# listings
+# Desc: /dashboard/admin/listings/companysectors
+alotofus_admin_listings_companySectors_index: '/dashboard/admin/zerrendak/konpainia-sektoreak'
+
+# Desc: /dashboard/admin/listings/companysizes
+alotofus_admin_listings_companySizes_index: '/dashboard/admin/zerrendak/konpainia-tamaina'
+
+# Desc: /dashboard/admin/listings/companytypes
+alotofus_admin_listings_companyTypes_index: '/dashboard/admin/zerrendak/konpainia-motak'
+
+# Desc: /dashboard/admin/listings/knowledge
+alotofus_admin_listings_knowledge_index: '/dashboard/admin/zerrendak/ezagutza'
+
+# Desc: /dashboard/admin/listings/languages
+alotofus_admin_listings_languages_index: '/dashboard/admin/zerrendak/hizkuntzak'
+
+# Desc: /dashboard/admin/listings/studies
+alotofus_admin_listings_studies_index: '/dashboard/admin/zerrendak/ikasketak'

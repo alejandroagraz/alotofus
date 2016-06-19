@@ -1,0 +1,72 @@
+{% extends 'AlotofusWebBundle:Default:base/platform.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts '@AlotofusAdminBundle/Resources/public/coffee/model/user.coffee'
+                   '@AlotofusAdminBundle/Resources/public/coffee/collection/user.coffee'
+                   '@AlotofusAdminBundle/Resources/public/coffee/views/invitations/index.coffee'
+                   '@AlotofusAdminBundle/Resources/public/coffee/views/invitations/invitationTableRowView.coffee'
+                   output='js/*.js'
+                    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block dashboardContent %}
+    <div class="dashboard-element-container">
+        <div class="dashboard-element invitations-table">
+            <h2>{% trans %}alotofus.admin.invitations.header{% endtrans %}</h2>
+            <div class="table-options">
+                <div class="table-selection">
+                    <button class="send-invitations"><i data-icon="invitation"></i>{% trans %}alotofus.admin.invitations.send{% endtrans %}</button>
+                    <span class="selection-counter"><span>0</span> selected</span>
+                </div>
+                <div class="table-filter">
+                    <span>{% trans %}alotofus.generic.filters{% endtrans %}:</span>
+                    <input data-filter="email" placeholder="{% trans %}alotofus.entity.user.email{% endtrans %}"/>
+                    <select data-filter="activated" name="activated">
+                        <option value="">{% trans %}alotofus.entity.user.activated{% endtrans %}</option>
+                        <option value="true">{% trans %}alotofus.generic.yes{% endtrans %}</option>
+                        <option value="false" selected>{% trans %}alotofus.generic.no{% endtrans %}</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="selector"><input type="checkbox"/></th>
+                        <th>{% trans %}alotofus.entity.user.name{% endtrans %}</th>
+                        <th>{% trans %}alotofus.entity.user.surname{% endtrans %}</th>
+                        <th>{% trans %}alotofus.entity.user.email{% endtrans %}</th>
+                        <th>{% trans %}alotofus.entity.user.activated{% endtrans %}</th>
+                        <th>{% trans %}alotofus.entity.user.createdAt{% endtrans %}</th>
+                        <th>{% trans %}alotofus.generic.actions{% endtrans %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="table-footer">
+                <ul class="table-pager">
+                    <li class="previous-page "><i data-icon="left"></i></li>
+                    <li class="current-page">
+                        {% image output="images/loading.gif"
+                            '@AlotofusWebBundle/Resources/public/images/loading.gif'
+                        %}
+                        <img src="{{ asset_url }}" alt="" height=20 />
+                        {% endimage %}
+                        <span></span>
+                    </li>
+                    <li class="next-page"><i data-icon="right"></i></li>
+                </ul>
+                <ul class="table-legend">
+                    <li>{% trans %}alotofus.admin.invitations.send{% endtrans %}<i data-icon="invitation"></i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

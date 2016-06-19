@@ -1,0 +1,13 @@
+alotofus:
+    admin:
+        analytics:
+            header: Analitikak
+
+    entity:
+        dailyAnalytics:
+            registeredUsers: Erregistratutako erabiltzaileak
+            activeUsers: Erabiltzaile aktibaok
+            openOffers: Zabaldutako eskaintzak
+            enroledUsers: Hautagaiak
+            registeredCompanies: Erregistratutako enpresak
+            companiesWithOffers: Eskaintzak dituzten enpresak

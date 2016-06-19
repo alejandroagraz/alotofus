@@ -1,0 +1,13 @@
+alotofus:
+    admin:
+        analytics:
+            header: Analytics
+
+    entity:
+        dailyAnalytics:
+            registeredUsers: Registered users
+            activeUsers: Active users
+            openOffers: Open offers
+            enroledUsers: Enroled users
+            registeredCompanies: Registered companies
+            companiesWithOffers: Companies with offers

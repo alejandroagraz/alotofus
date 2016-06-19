@@ -1,0 +1,79 @@
+{% extends 'AlotofusWebBundle:Default:base/platform.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts '@AlotofusAdminBundle/Resources/public/coffee/model/company.coffee'
+                   '@AlotofusAdminBundle/Resources/public/coffee/collection/company.coffee'
+                   '@AlotofusAdminBundle/Resources/public/coffee/views/company/index.coffee'
+                   '@AlotofusAdminBundle/Resources/public/coffee/views/company/companyTableRowView.coffee'
+                    output='js/*.js'
+                    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block dashboardContent %}
+    <div class="dashboard-element-container">
+        <div class="dashboard-element companies-table">
+            <h2>{% trans %}alotofus.admin.company.header{% endtrans %}</h2>
+            <div class="table-options">
+                <div class="table-selection">
+                    <button class="accept-companies" name="accept-companies">
+                        <i data-icon="tick"></i>{% trans %}alotofus.admin.company.accept{% endtrans %}
+                    </button>
+                    <span class="selection-counter">
+                        <span>0</span> {% trans %}alotofus.generic.selected{% endtrans %}
+                    </span>
+                </div>
+                <div class="table-filter">
+                    <span>{% trans %}alotofus.generic.filters{% endtrans %}:</span>
+                    <input data-filter="email" name="email" placeholder="{% trans %}alotofus.entity.user.email{% endtrans %}"/>
+                    <input data-filter="name" name="name" placeholder="{% trans %}alotofus.entity.company.name{% endtrans %}"/>
+                     <select data-filter="activated" name="activated">
+                        <option value="">{% trans %}alotofus.entity.company.activated{% endtrans %}</option>
+                        <option value="true">{% trans %}alotofus.generic.yes{% endtrans %}</option>
+                        <option value="false">{% trans %}alotofus.generic.no{% endtrans %}</option>
+                    </select>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="selector"><input type="checkbox"/></th>
+                        <th data-order="name">{% trans %}alotofus.entity.company.name{% endtrans %}</th>
+                        <th data-order="email">{% trans %}alotofus.entity.company.email{% endtrans %}</th>
+                        <th>{% trans %}alotofus.entity.company.companyId{% endtrans %}</th>
+                        <th>{% trans %}alotofus.entity.company.activated{% endtrans %}</th>
+                        <th data-order="created_at">{% trans %}alotofus.entity.company.createdAt{% endtrans %}</th>
+                        <th>{% trans %}alotofus.generic.actions{% endtrans %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="table-footer">
+                <ul class="table-pager">
+                    <li class="previous-page "><i data-icon="left"></i></li>
+                    <li class="current-page">
+                        {% image output="images/loading.gif"
+                            '@AlotofusWebBundle/Resources/public/images/loading.gif'
+                        %}
+                        <img src="{{ asset_url }}" alt="" height=20 />
+                        {% endimage %}
+                        <span></span>
+                    </li>
+                    <li class="next-page"><i data-icon="right"></i></li>
+                </ul>
+                <ul class="table-legend">
+                    <li>{% trans %}alotofus.admin.company.accept{% endtrans %}<i data-icon="tick"></i></li>
+                    <li>{% trans %}alotofus.admin.company.deactivate{% endtrans %}<i data-icon="cross"></i></li>
+                    <li>{% trans %}alotofus.admin.company.delete{% endtrans %}<i data-icon="bin"></i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

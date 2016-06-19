@@ -1,0 +1,22 @@
+parameters:
+#    alotofus_admin.example.class: Alotofus\AdminBundle\Example
+
+services:
+    alotofus_admin.controller.listings.languages:
+        class: Alotofus\AdminBundle\Controller\ListingsController
+        arguments: [AlotofusKnowledgeBundle:Language,@service_container,languages]
+    alotofus_admin.controller.listings.knowledge:
+        class: Alotofus\AdminBundle\Controller\ListingsController
+        arguments: [AlotofusKnowledgeBundle:Knowledge,@service_container,knowledges]
+    alotofus_admin.controller.listings.studies:
+        class: Alotofus\AdminBundle\Controller\ListingsController
+        arguments: [AlotofusKnowledgeBundle:Studies,@service_container,studies]
+    alotofus_admin.controller.listings.companytypes:
+        class: Alotofus\AdminBundle\Controller\ListingsController
+        arguments: [AlotofusCompanyBundle:CompanyType,@service_container,companytypes]
+    alotofus_admin.controller.listings.companysizes:
+        class: Alotofus\AdminBundle\Controller\ListingsController
+        arguments: [AlotofusCompanyBundle:CompanySize,@service_container,companysizes]
+    alotofus_admin.controller.listings.companysectors:
+        class: Alotofus\AdminBundle\Controller\ListingsController
+        arguments: [AlotofusCompanyBundle:CompanySector,@service_container,companysectors]

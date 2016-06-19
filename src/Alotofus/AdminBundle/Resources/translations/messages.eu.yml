@@ -1,0 +1,27 @@
+alotofus:
+    admin:
+        invitations:
+            header: Gonbidapenak
+            send: Gonbidapenak bidali
+            send.success: Gonbidapena bidali da
+            send.error: Errorera gonbidapena bidaltzerakoan
+        company:
+            header: Enpresak
+            accept: Enpresa(k) onartu
+            accept.success: Empresa onartu da
+            accept.error: Errorea empresa onartzerakoan
+            deactivate: Enpresa desaktibatu
+            deactivate.success: Empresa desaktibatu da
+            deactivate.error: Errorea enpresa desaktibatzerakoan
+            delete: Enpresa ezabatu
+            delete.success: Enpresa ezabatu da
+            delete.error: Errorea enpresa ezabatzerakoan
+        listings:
+            header: Zerrendak
+            studies: Ikasketak
+            knowledges: Jakintzak
+            languages: Hizkuntzak
+            companysizes: Enpresa tamainak
+            companytypes: Enpresa motak
+            companysectors: Enpresa sektoreak
+            name: Izena

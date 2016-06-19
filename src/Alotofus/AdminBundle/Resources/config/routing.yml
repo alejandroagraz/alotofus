@@ -1,0 +1,15 @@
+alotofus_admin_invitations:
+    pattern:  /invitations
+    defaults: { _controller: AlotofusAdminBundle:Invitations:index }
+
+alotofus_admin_company:
+    pattern:  /company
+    defaults: { _controller: AlotofusAdminBundle:Company:index }
+
+alotofus_admin_analytics:
+    pattern:  /analytics
+    defaults: { _controller: AlotofusAdminBundle:Analytics:index }
+
+alotofus_admin_listings:
+    prefix: /listings
+    resource: "@AlotofusAdminBundle/Resources/config/routing_listings.yml"

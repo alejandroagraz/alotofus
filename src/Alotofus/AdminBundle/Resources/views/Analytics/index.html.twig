@@ -1,0 +1,84 @@
+{% extends 'AlotofusWebBundle:Default:base/platform.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets filter="compass, cssrewrite"
+        "@AlotofusAdminBundle/Resources/public/scss/analytics.scss"
+        output='css/*.css' %}
+    <link href="{{ asset_url }}" media="screen" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var AlotofusAnalytics = {
+            dates: {
+                labels : [{% for d in dates %}"{{ d }}"{% if not loop.last %},{% endif %}{% endfor %}]
+            },
+        {% for key, analytics in parsedAnalytics  %}
+            {{ key }}: {
+                datasets : [{data : [{% for an in analytics %}{{ an }}{% if not loop.last %},{% endif %}{% endfor %}]}]
+            },
+        {% endfor %}
+        };
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.js"></script>
+    {% javascripts '@AlotofusAdminBundle/Resources/public/coffee/views/analytics/index.coffee'
+    output='js/*.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}
+
+{% block dashboardContent %}
+    <div class="dashboard-element-container col-1-2">
+        <div class="dashboard-element">
+            <h2>{% trans %}alotofus.entity.dailyAnalytics.registeredUsers{% endtrans %}
+                {{ analyticStatistics(firstAnalytic.registeredUsers,lastAnalytic.registeredUsers) }}
+            </h2>
+            <canvas id="registered-users-chart" width="600" height="300"></canvas>
+        </div>
+    </div>
+    <div class="dashboard-element-container col-1-2">
+        <div class="dashboard-element">
+            <h2>{% trans %}alotofus.entity.dailyAnalytics.activeUsers{% endtrans %}
+                {{ analyticStatistics(firstAnalytic.activeUsers,lastAnalytic.activeUsers) }}
+            </h2>
+            <canvas id="active-users-chart" width="600" height="300"></canvas>
+        </div>
+    </div>
+    <div class="dashboard-element-container col-1-2">
+        <div class="dashboard-element">
+            <h2>{% trans %}alotofus.entity.dailyAnalytics.enroledUsers{% endtrans %}
+                {{ analyticStatistics(firstAnalytic.enroledUsers,lastAnalytic.enroledUsers) }}
+            </h2>
+            <canvas id="enroled-users-chart" width="600" height="300"></canvas>
+        </div>
+    </div>
+    <div class="dashboard-element-container col-1-2">
+        <div class="dashboard-element">
+            <h2>{% trans %}alotofus.entity.dailyAnalytics.openOffers{% endtrans %}
+                {{ analyticStatistics(firstAnalytic.openOffers,lastAnalytic.openOffers) }}
+            </h2>
+            <canvas id="open-offers-chart" width="600" height="300"></canvas>
+        </div>
+    </div>
+    <div class="dashboard-element-container col-1-2">
+        <div class="dashboard-element">
+            <h2>{% trans %}alotofus.entity.dailyAnalytics.registeredCompanies{% endtrans %}
+                {{ analyticStatistics(firstAnalytic.registeredCompanies,lastAnalytic.registeredCompanies) }}
+            </h2>
+            <canvas id="registered-companies-chart" width="600" height="300"></canvas>
+        </div>
+    </div>
+    <div class="dashboard-element-container col-1-2">
+        <div class="dashboard-element">
+            <h2>{% trans %}alotofus.entity.dailyAnalytics.companiesWithOffers{% endtrans %}
+                {{ analyticStatistics(firstAnalytic.companiesWithOffers,lastAnalytic.companiesWithOffers) }}
+            </h2>
+            <canvas id="companies-with-offers-chart" width="600" height="300"></canvas>
+        </div>
+    </div>
+{% endblock %}

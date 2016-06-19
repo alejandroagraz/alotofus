@@ -1,0 +1,35 @@
+alotofus_admin_listings_languages_index:
+    pattern:  /languages
+    methods: [GET]
+    defaults:
+        _controller: alotofus_admin.controller.listings.languages:indexAction
+
+alotofus_admin_listings_knowledge_index:
+    pattern:  /knowledge
+    methods: [GET]
+    defaults:
+        _controller: alotofus_admin.controller.listings.knowledge:indexAction
+
+alotofus_admin_listings_studies_index:
+    pattern:  /studies
+    methods: [GET]
+    defaults:
+        _controller: alotofus_admin.controller.listings.studies:indexAction
+
+alotofus_admin_listings_companyTypes_index:
+    pattern:  /companytypes
+    methods: [GET]
+    defaults:
+        _controller: alotofus_admin.controller.listings.companytypes:indexAction
+
+alotofus_admin_listings_companySizes_index:
+    pattern:  /companysizes
+    methods: [GET]
+    defaults:
+        _controller: alotofus_admin.controller.listings.companysizes:indexAction
+
+alotofus_admin_listings_companySectors_index:
+    pattern:  /companysectors
+    methods: [GET]
+    defaults:
+        _controller: alotofus_admin.controller.listings.companysectors:indexAction
